@@ -24,7 +24,7 @@ Yes, some stuff have dependencies
 | Discord   | Yes   (BetterDiscord)       |
 | Spotify   | Yes   (Spicetify)           |
 | Polybar   | Yes   (Scripts)             |
-| Alacritty | Yes   (colours              |
+| Alacritty | Yes   (colours)             |
 | Firefox   | Yes   (Flags)               |
 | Rofi      | Optional                    |
 
