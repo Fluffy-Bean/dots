@@ -1,14 +1,17 @@
 # Config Files
 
 Fluffy's config files for Arch Linux, but should work on other distros.
+Also please keep in mind that all these configs do not prioritise being used by just anyone, thus there will be some hard-coded directories so please be sure to go through the config files prior to using them.
 
-## Colour Schemes
+## Colour Schemes and Scripts
 
 I did NOT make any of the colour schemes, so some of the config files cannot be included (so far just the Alacritty config)
 Please refer to the original repositories for those
 
 - [Paradise](https://github.com/Manas140/paradise)
 - [Gruvbox](https://github.com/morhetz/gruvbox)
+
+There are also some scripts I did not make such as a Rofi bash script, [here's the original](https://github.com/adi1090x/polybar-themes/blob/master/simple/grayblocks/scripts/powermenu.sh)
 
 ## How to use
 
@@ -20,7 +23,7 @@ Yes, some stuff have dependencies
 |-----------|-----------------------------|
 | Discord   | Yes   (BetterDiscord)       |
 | Spotify   | Yes   (Spicetify)           |
-| Polybar   | Yes   (Extensions)          |
+| Polybar   | Yes   (Scripts)             |
 | Alacritty | No                          |
 | Firefox   | Yes   (Flags)               |
 | Rofi      | No                          |
@@ -50,7 +53,8 @@ If you feel like I missed a dependency, please contact me on the following:
 
 #### Polybar
 
-1. Add text!
+This has [this spotify module](https://github.com/Jvanrhijn/polybar-spotify) as a dependency I cannot include, please put the script in the correct file!
+Replace "!!!USERNAME!!!" with your directory on line 266
 
 #### Firefox
 
@@ -61,16 +65,13 @@ If you feel like I missed a dependency, please contact me on the following:
 1. Go into the rofi config file
 2. Change the image
 
-or
-
-2. Remove the image overall and by editing line 70 out
-
 ## ToDo
 
-- Make a script to automate all this
+- Make a bash script to automate all this
 - Fix errors
 - Finish README
+- Remove hard-coded dependencies
 
-## License
+## Licence
 
-Open source UwU license
+Open source UwU licence
