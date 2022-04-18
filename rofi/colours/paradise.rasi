@@ -1,0 +1,16 @@
+/*         PARADISE THEME         */
+/*    config for fluffys dots,    */
+/* colours by @Manas140 on GitHub */
+
+* {
+    bg:   #151515;
+    bg2:  #15151500;
+    fg:   #E8E3E3;
+    sd:   #151515;
+    alt:  #8C977D;
+    rad:  16px;
+    rad2: 8px;
+
+    background-color: @bg;
+    text-color:       @fg;
+}

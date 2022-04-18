@@ -1,0 +1,119 @@
+/*
+*                           _             _
+* __      ____ _ _ __ _ __ (_)_ __   __ _| |
+* \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | |
+*  \ V  V / (_| | |  | | | | | | | | (_| |_|
+*   \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, (_)
+*                                   |___/
+*   This will not work on its own, you NEED spicetify
+*   WITH the dribbblish theme installed
+*   AND custom CSS plugin, then and ONLY THEN can you pate
+*   this into the custom CSS section.
+*/
+
+/* GRUVBOX THEME */
+/*:root {
+  --spice-text: #fbf1c7;
+  --spice-subtext: #d5c4a1;
+  --spice-sidebar-text: #fbf1c7;
+  --spice-main: #504945;
+  --spice-sidebar: #292828;
+  --spice-player: #665C54;
+  --spice-card: #3c3836;
+  --spice-shadow: #202020;
+  --spice-selected-row: #d5c4a1;
+  --spice-button: #a89984;
+  --spice-button-active: #d65d0e;
+  --spice-button-disabled: #bdae93;
+  --spice-tab-active: #fb4934;
+  --spice-notification: #8ec07c;
+  --spice-notification-error: #d79921;
+  --spice-misc: #BFBFBF;
+}
+
+ remove if you don't like the roundness, and edit this line out if you want to use the gruvbox colours
+
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
+  border-bottom: 0;
+  background-color: #504945;
+}
+
+.iB16LxoPzDeVZo8zPhPQ,
+.rezqw3Q4OEPB1m4rmwfw{
+  background-color: #504945;
+}
+
+.main-card-card{
+  background: #504945;
+  border-radius: 16px;
+}
+
+*/
+
+
+/* PARADICE THEME  */
+:root {
+  --spice-text: #e3e3e3;
+  --spice-subtext: #e3e3e3;
+  --spice-sidebar-text: #e3e3e3;
+  --spice-main: #151515;
+  --spice-sidebar: #252525;
+  --spice-player: #665C54;
+  --spice-card: #3c3836;
+  --spice-shadow: #202020;
+  --spice-selected-row: #d5c4a1;
+  --spice-button: #e8e3e3;
+  --spice-button-active: #d65d0e;
+  --spice-button-disabled: #bdae93;
+  --spice-tab-active: #fb4934;
+}
+
+/* remove if you don't like the roundness */
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
+  border-bottom: 0;
+  background-color: #151515;
+}
+
+.iB16LxoPzDeVZo8zPhPQ,
+.rezqw3Q4OEPB1m4rmwfw{
+  background-color: #151515;
+}
+
+.main-card-card{
+  background: #151515;
+  border-radius: 16px;
+}
+
+
+/* GENERAL STUFF */
+/* remove if you don't like the extra round-ness */
+.main-trackList-trackListRow {
+  border-radius: 16px;
+
+}
+
+.main-trackList-trackListHeaderRow {
+  border-bottom: 0;
+}
+
+.main-heroCard-card {
+  border-radius: 16px;
+}
+
+.main-coverSlotExpanded-container{
+  border-radius: 16px;
+}
+
+.main-contextMenu-menu{
+  border-radius: 16px;
+}
+
+.main-image-image,
+.main-trackList-rowImage{
+  border-radius: 8px;
+}
+
+.JdlKTdpMquftpMwwegZo,
+.CmkY1Ag0tJDfnFXbGgju{
+  border-radius: 16px;
+}

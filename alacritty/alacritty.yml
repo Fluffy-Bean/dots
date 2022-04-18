@@ -1,0 +1,20 @@
+#I did not make colours for config, please refere to README for more info
+
+window:
+  opacity: 1.0
+  padding:
+    x: 12
+    y: 12
+  dynamic_padding: true
+
+font:
+  normal:
+    #family: "Fira Code"
+    family: "Cartograph mono CF"
+  size: 11
+
+cursor:
+  style:
+    shape: Underline
+  vi_mode_style:
+    shape: Block

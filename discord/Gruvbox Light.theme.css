@@ -1,0 +1,35 @@
+/**
+ * @name Gruvbox Light
+ * @description Discord Recolour - Gruvbox Light
+ * @author Fluffy Bean & mrHDash
+ * @version 1
+ */
+
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/DiscordRecolor/DiscordRecolor.css);
+
+:root {
+	--font:						Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;					/*  General Font  */
+	--settingsicons:			1;						/*  Use Settings Icons - Settings: 1 yes, 0 no  */
+	
+	--accentcolor:  				7,102,120;
+	--accentcolor2:  			177,98,134;
+	--linkcolor:  				69,133,136;
+	--mentioncolor:  			215,153,33;
+	--successcolor:  			152,151,26;
+	--warningcolor:  			212,94,14;
+	--dangercolor:   			204,36,26;
+
+	--textbrightest:  			40,40,40;
+	--textbrighter:  			60,56,54;
+	--textbright:  				80,73,69;
+	--textdark:  				102,92,84;
+	--textdarker:  				124,111,100;
+	--textdarkest:  				146,131,116;
+	
+	--backgroundaccent:  		168,153,132;
+	--backgroundprimary:  		189,174,147;
+	--backgroundsecondary:  		213,196,161;
+	--backgroundsecondaryalt:  	235,219,177;
+	--backgroundtertiary:  		251,241,199;
+	--backgroundfloating:  		249,245,215;
+}

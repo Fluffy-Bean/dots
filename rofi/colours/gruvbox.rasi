@@ -1,0 +1,15 @@
+/*          GRUVBOX THEME         */
+/*    config for fluffys dots     */
+
+* {
+    bg:   #282828;
+    bg2:  #1d2021BF;
+    fg:   #ebdbb2;
+    sd:   #1d2021;
+    alt:  #3c3836;
+    rad:  16px;
+    rad2: 8px;
+
+    background-color: @bg;
+    text-color:       @fg;
+}
