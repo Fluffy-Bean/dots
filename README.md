@@ -24,9 +24,9 @@ Yes, some stuff have dependencies
 | Discord   | Yes   (BetterDiscord)       |
 | Spotify   | Yes   (Spicetify)           |
 | Polybar   | Yes   (Scripts)             |
-| Alacritty | No                          |
+| Alacritty | Yes   (colours              |
 | Firefox   | Yes   (Flags)               |
-| Rofi      | No                          |
+| Rofi      | Optional                    |
 
 Please read through this as some things will not work just by copy and pasting into the .config folder.
 If you feel like I missed a dependency, please contact me on the following:
