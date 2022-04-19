@@ -43,7 +43,9 @@ inputbar {
     children:         [ entry ];
     padding:          16px 16px 6em;
     border-radius:    @rad;
-    background-image: url("titleBarImages/sploot.jpg", width);
+    border-color:     @bg;
+    border:           3px;
+    background-image: url("titleBarImages/doggys.jpg", width);
     text-color:       @fg;
 }
 
