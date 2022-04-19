@@ -1,7 +1,6 @@
 # Config Files
 
-Fluffy's config files for Arch Linux, but should work on other distros.
-Also please keep in mind that all these configs do not prioritise being used by just anyone, thus there will be some hard-coded directories so please be sure to go through the config files prior to using them.
+Fluffy's config files for Arch Linux!!!!!!!!!
 
 ## Colour Schemes and Scripts
 
@@ -53,8 +52,7 @@ If you feel like I missed a dependency, please contact me on the following:
 
 #### Polybar
 
-This has [this spotify module](https://github.com/Jvanrhijn/polybar-spotify) as a dependency I cannot include, please put the script in the correct file!
-Replace "!!!USERNAME!!!" with your directory on line 266
+This has [this spotify module](https://github.com/Jvanrhijn/polybar-spotify) as a dependency I cannot include, please put the script(s) in a scripts file
 
 #### Firefox
 
@@ -62,15 +60,17 @@ Replace "!!!USERNAME!!!" with your directory on line 266
 
 #### Rofi - Optional
 
-1. Go into the rofi config file
-2. Change the image
+Change the image (the raccoon is good though)
 
 ## ToDo
 
 - Make a bash script to automate all this
 - Fix errors
 - Finish README
-- Remove hard-coded dependencies
+
+## Done
+
+- Removed hard-coded directories mostly
 
 ## Licence
 
