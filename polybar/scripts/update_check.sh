@@ -2,7 +2,7 @@
 
 b=$(pacman -Qu | wc -l)
 
-if [[ "$b" -ne "0" ]]; then
+if [ "$b" != "0" ]; then
   echo "  ";
 else
   echo "";
