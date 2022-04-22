@@ -53,7 +53,7 @@ If you feel like I missed a dependency, please contact me on the following:
 
 #### Polybar
 
-- Requires Material and DejaVu Sans fonts installed
+- Requires Material, DejaVu Sans and Rubik fonts installed
 - For spotify module install [this](https://github.com/Jvanrhijn/polybar-spotify) and put into the Scripts folder
 
 #### Firefox
