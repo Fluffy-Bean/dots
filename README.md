@@ -2,7 +2,9 @@
 
 Fluffy's config files for Arch Linux!!!!!!!!!
 
-[screenshot](https://github.com/Fluffy-Bean/dots/blob/main/sussywussy.png?raw=true)
+<div align="center">
+    <img src="sussywussy.png" alt="screenshot">
+</div>
 
 ## Credits
 
