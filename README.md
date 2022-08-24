@@ -1,21 +1,20 @@
 # Config Files
 
-Fluffy's config files for Arch Linux!!!!!!!!!
+Fluffy's config files for Arch Linux on Qtile!!!!!!!!!!!!!
 
 <div align="center">
-    <img src="sussywussy.png" alt="screenshot">
+    <img src="https://i.redd.it/a89igasc8hj91.png" alt="screenshot">
 </div>
 
 ## Credits
 
-I did not make the Paradise nor Gruvbox theme, credit goes to creators!
+I did not make the Paradise nor the Gruvbox theme, credit goes to creators!
 
 - [Paradise](https://github.com/Manas140/paradise)
 - [Gruvbox](https://github.com/morhetz/gruvbox)
 
-I also did not make some of the scripts, and as such cannot include them in the config (unless modified to my needs)
+I also did not make some of the scripts, and as such cannot include them in the config
 
-- [Rofi power menu](https://github.com/adi1090x/polybar-themes/blob/master/simple/grayblocks/scripts/powermenu.sh)
 - [Spotify module](https://github.com/Jvanrhijn/polybar-spotify)
 
 I took great insperation from Manas' dotfiles
@@ -44,13 +43,20 @@ I took great insperation from Manas' dotfiles
 
 Change the image if you're mean and hate raccoons :c
 
+### Qtile
+
+1. Move folder into .config/
+
+### Picom
+
+1. You must have jonaburg's picom installed 
+    https://github.com/jonaburg/picom
+2. Now that you're back, move folder into .config/
+
 ## ToDo
 
-- Make a bash script to automate all this
-- Fix errors
-- Finish README
-
-## Done
-
-- Removed most hard-coded directories
-- Cleaned up files and Code
+- [ ] Make a bash script to automate all this
+- [x] Fix errors (mostly)
+- [ ] Finish README
+- [x] Removed most hard-coded directories
+- [x] Cleaned up files and Code
