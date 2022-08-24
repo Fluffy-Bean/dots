@@ -8,6 +8,7 @@
     fg:   #E8E3E3;
     sd:   #151515;
     alt:  #8C977D;
+    /*alt: #B66467;*/
     rad:  16px;
     rad2: 8px;
 

@@ -43,8 +43,8 @@ inputbar {
     children:         [ entry ];
     padding:          16px 16px 6em;
     border-radius:    @rad;
-    border-color:     @bg;
-    border:           3px;
+    /*border-color:     @bg;
+    border:           3px;*/
     background-image: url("titleBarImages/doggys.jpg", width);
     text-color:       @fg;
 }
