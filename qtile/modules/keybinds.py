@@ -111,9 +111,9 @@ application_spawns = [
 ]
 
 mediactl = [
-    EzKey("<XF86AudioPlay>", lazy.spawn("playerctl play-pause")),
-    EzKey("<XF86AudioNext>", lazy.spawn("playerctl next")),
-    EzKey("<XF86AudioPrev>", lazy.spawn("playerctl previous")),
+    EzKey("<XF86AudioPlay>", lazy.spawn("playerctl play-pause -i firefox")),
+    EzKey("<XF86AudioNext>", lazy.spawn("playerctl next -i firefox")),
+    EzKey("<XF86AudioPrev>", lazy.spawn("playerctl previous -i firefox")),
 ]
 
 scrcap = [
