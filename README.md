@@ -13,10 +13,6 @@ I did not make the Paradise nor the Gruvbox theme, credit goes to creators!
 - [Paradise](https://github.com/Manas140/paradise)
 - [Gruvbox](https://github.com/morhetz/gruvbox)
 
-I also did not make some of the scripts, and as such cannot include them in the config
-
-- [Spotify module](https://github.com/Jvanrhijn/polybar-spotify)
-
 I took great insperation from Manas' dotfiles
 - [Dotfiles](https://github.com/Manas140/dotfiles)
 
@@ -37,7 +33,6 @@ I took great insperation from Manas' dotfiles
 ### Polybar
 
 - Requires Material, DejaVu Sans and Rubik fonts installed
-- For spotify module install [this](https://github.com/Jvanrhijn/polybar-spotify) and put into the Scripts folder
 
 ### Rofi
 
