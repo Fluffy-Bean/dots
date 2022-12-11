@@ -1,0 +1,1 @@
+/home/fluffy/.config/qtile/config.py
