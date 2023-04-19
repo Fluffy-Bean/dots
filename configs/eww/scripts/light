@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Get power state
+get_state=$(curl -s "http://192.168.0.8/cm?cmnd=Status")
+state=$(echo $get_state | python3 -c "import sys, json; print(json.load(sys.stdin)['Status']['Power'])")
+
+if [ $state -eq 1 ]; then
+    echo "ON";
+else
+    echo "OFF";
+fi
+

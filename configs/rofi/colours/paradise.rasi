@@ -1,0 +1,18 @@
+/*         PARADISE THEME         */
+/*    config for fluffys dots     */
+
+* {
+    bg:     #101010;
+    bg-alt: #151515;
+    fg:     #E8E3E3;
+    fg-alt: #666;
+    
+    primary:    #b7a997;
+    secondary:  #B66467;
+
+    rad:    3px;
+    rad2:   2px;
+
+    background-color: @bg;
+    text-color:       @fg;
+}

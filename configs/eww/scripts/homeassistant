@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+from requests import get, post
+import sys
+import dotenv
+
+url = dotenv.get_key('/home/fluffy/.config/eww/scripts/.env', 'HA_URL')
+bearer = dotenv.get_key('/home/fluffy/.config/eww/scripts/.env', 'HA_API')
+
+def getStates(device):
+    headers = {
+        'Authorization': 'Bearer '+bearer,
+        'content-type': 'application/json'
+    }
+    
+    response = get(
+        url+'/api/states/'+device,
+        headers=headers
+        )
+    
+    if response.status_code == 200 or response.status_code == 201:
+        return response.json()
+    else:
+        return False
+
+def setState(device, state, value):
+    headers = {
+        'Authorization': 'Bearer '+bearer,
+        'content-type': 'application/json',
+    }
+    
+    request = post(
+        url+'/api/services/scene/apply',
+        headers=headers,
+        json={
+            "entities": {
+                    device: {
+                        'state': 'on',
+                        state: value,
+                    }
+                }
+            }
+        )
+    
+    if request.status_code == 200 or request.status_code == 201:
+        return request
+    else:
+        return False
+        
+if sys.argv[1] == "state":
+    state = getStates('light.light')
+    
+    if state:
+        print(state['state'])
+elif sys.argv[1] == "toggle":
+    state = getStates('light.light')
+    
+    if state:
+        if state['state'] == 'on':
+            setState('light.light', 'state', 'off')
+        else:
+            setState('light.light', 'state', 'on')

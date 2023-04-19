@@ -1,0 +1,231 @@
+;;;; COMMANDS ;;;;
+
+(defvar launcher_cmd  "rofi -show drun -hover-select -me-select-entry '' -me-accept-entry 'MousePrimary' &")
+(defvar lamp_cmd      "./scripts/homeassistant toggle &")
+(defvar bluetooth_cmd "blueberry &")
+(defvar vpn_cmd       "./scripts/vpn toggle &")
+(defvar volume_cmd    "pavucontrol &")
+(defvar power_cmd     "./scripts/powermenu &")
+
+;;;; BAR WIDGETS ;;;;
+
+;; bar widget
+(defwidget bar-widget []
+	(centerbox :orientation "v"
+		(box :class "start"
+			:valign "start"
+			(start))
+		(box :valign "center"
+			:class "center"
+			(center))
+		(box :valign "end"
+			:class "end"
+			(end))))
+
+;; top layout
+(defwidget start []
+	(box :orientation "v"
+		:space-evenly false
+		:spacing "8"
+		(launcher)(workspaces)))
+
+;; middle layout
+(defwidget center []
+	(box :orientation "v"
+		:space-evenly false
+		:spacing "8"
+		(clock)(date)))
+
+;; bottom layout
+(defwidget end []
+	(box :orientation "v"
+		:space-evenly false
+		:spacing "8"
+		(homeassistant)(capture)(systemtray)(powermenu)))
+
+;;;; TOP ;;;;
+
+;; launcher
+(defwidget launcher []
+	(button :class "launcher-icon metric"
+		:tooltip "Rofi launcher"
+		:onclick launcher_cmd  ""))
+
+;; music
+(defwidget music []
+	(box :class "metric"
+		:orientation "v"
+		:space-evenly false
+		:spacing "0"
+		(music-prev)(music-playpause)(music-skip)))
+
+(defwidget music-playpause []
+	(button :class "playpause-icon"
+		:onclick "playerctl play-pause -i firefox"
+		:tooltip "Toggle track"
+		{music-status == "Playing" ? "" : ""}))
+
+(defpoll music-status :interval "1s" "playerctl -p %any -i firefox status")
+
+(defwidget music-skip []
+	(button :class "skip-icon"
+		:onclick "playerctl next -i firefox"
+		:tooltip "Skip track"
+		""))
+
+(defwidget music-prev []
+	(button :class "prev-icon"
+		:onclick "playerctl previous -i firefox"
+		:tooltip "Previous track"
+		""))
+
+(defwidget workspaces [] (literal :content "${workspace_data}"))
+(defvar workspace_data "")
+
+;;;; CENTER ;;;;
+
+;; clock
+(defwidget clock []
+	(box :class "metric time-clock"
+		(box :orientation "v"
+			:halign "center"
+			(label :text hour :class "hour")
+			(label :text minute :class "minute"))))
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll minute :interval "1s" "date +%M")
+
+;; date
+(defwidget date []
+	(box :class "metric date-clock"
+		(box :orientation "v"
+			:halign "center"
+			(label :text day :class "day")
+			(label :text month :class "month")
+			(label :text year :class "year"))))
+
+(defpoll day :interval "1s" "date +%d")
+(defpoll month :interval "1s" "date +%m")
+(defpoll year :interval "1s" "date +%y")
+
+
+;;;; BOTTOM (sus) ;;;;
+
+;; homeassistant
+(defwidget homeassistant []
+	(box :class "metric"
+		:orientation "v"
+		:space-evenly false
+		:spacing "0"
+		(light)))
+
+(defwidget light []
+	(button :class "light-icon ${light_power == "on" ? "light-on" : "light-off"}"
+		:tooltip "Toggle light"
+		:onclick lamp_cmd
+		""))
+
+(defpoll light_power :interval "1s" "./scripts/homeassistant state")
+
+
+;; capture tools
+(defwidget capture []
+	(box :class "metric"
+		:orientation "v"
+		:space-evenly false
+		:spacing "0"
+		:visible "${obs-status == 0 ? "false" : "true"}"
+		(obs)))
+
+;; obs
+;; obs usually displays 2 processes when recording and 1 when just running in the background 
+(defwidget obs []
+	(button :class "obs-icon ${obs-status == 2 ? "obs-recording" : "obs-running"}"
+		:tooltip "OBS"
+		""))
+
+(defpoll obs-status :interval "1s" "pgrep obs | wc -l")
+
+;; systemtray
+(defwidget systemtray []
+	(box :class "metric"
+		:orientation "v"
+		:space-evenly false
+		:spacing "0"
+		(memory)(bluetooth)(vpn)(mic)(volume)))
+
+;; memory
+(defwidget memory []
+	(button :class "memory-icon"
+		:tooltip "Memory used: ${memory_percent}%"
+		:visible "${memory_percent > 85 ? "true" : "false"}"
+		""))
+
+(defpoll memory_percent :interval "1s" "free -m | grep Mem | awk '{print ($3/$2)*100}' | cut -d'.' -f1")
+
+;; bluetooth
+(defwidget bluetooth []
+	(button :class "bluetooth-icon ${bluetooth_status == "1" ? "bluetooth-on" : bluetooth_status == "2" ? "bluetooth-connected" : "bluetooth-off"}"
+		:onclick bluetooth_cmd
+		:tooltip "Bluetooth"
+		""))
+
+(defpoll bluetooth_status :interval "1s" "./scripts/bluetooth")
+
+;; vpn
+(defwidget vpn []
+	(button :class "vpn-icon ${vpn_status == "1" ? "vpn-on" : "vpn-off"}"
+		:onclick vpn_cmd
+		:tooltip "VPN"
+		""))
+
+(defpoll vpn_status :interval "1s" "./scripts/vpn status")
+
+;; mic
+(defwidget mic []
+	(button :class "mic-icon ${mic_status == "no" ? "mic-on" : "mic-off"}"
+		:onclick "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+		:tooltip "Microphone"
+		""))
+
+(defpoll mic_status :interval "1s" "pactl list sources | grep -m 2 Mute | tail -n 1 | awk '{print $2}'")
+
+;; volume
+(defwidget volume []
+	(eventbox :onhover "eww update volume_reveal=true"
+		:onhoverlost "eww update volume_reveal=false"
+		(box :orientation "v"
+			:space-evenly false
+			(revealer :transition "slideup"
+				:reveal volume_reveal
+				:duration "621ms"
+				(scale :class "volume-slider"
+					:value current_volume
+					:tooltip "Volume: ${current_volume}%"
+					:onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+					:orientation "v"
+					:flipped true
+					:max 101
+					:min 0))
+			(button :class "volume-icon"
+				:onclick volume_cmd 
+				{current_volume == 0 ? "" : ""}))))
+
+(defpoll current_volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defvar volume_reveal false)
+
+;; powermenu
+(defwidget powermenu []
+	(button :class "poweroff-icon metric"
+		:onclick power_cmd
+		""))
+
+;;;; WINDOWS ;;;;
+
+;; bar
+(defwindow bar
+	:stacking "bg"
+	:monitor 0
+	:geometry (geometry :x 0 :y 0 :width "48px" :height "100%" :anchor "top left")
+	
+	:reserve (struts :distance "48px" :side "left") (bar-widget))

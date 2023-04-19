@@ -1,0 +1,81 @@
+configuration {
+  display-drun:         "";
+  drun-display-format:  "{name}";
+  font:                 "JetBrainsMono 10";
+  timeout {
+    delay:              10;
+    action:             "kb-cancel";
+  }
+}
+
+@theme "/dev/null"
+@import "colours/paradise.rasi"
+
+window {
+    fullscreen:     false;
+
+    location:       south west;
+    anchor:         south west;
+
+    width:          310px;
+    height:         198px;
+
+    x-offset:       51px;
+    y-offset:       -3px;
+
+    transparency:   "real";
+    background-color: #00000000;
+}
+
+mainbox {
+    children:         [ inputbar, listview ];
+    spacing:          6px;
+
+    background-color: #00000000;
+}
+
+inputbar {
+  margin:           0px;
+  padding:          0.75em;
+
+  children:         [ prompt ];
+
+  border-radius:    @rad;
+  background-color: @bg;
+}
+
+prompt {
+    enabled:    true;
+}
+
+listview {
+    padding:          6px;
+
+    layout:           vertical;
+    cycle:            false;
+
+    border-radius:    @rad;
+}
+
+element {
+    padding:          0.75em;
+}
+
+/*
+ *     SELECTED
+ */
+element selected {
+    border: 0px solid 0px solid 0px solid 2px solid;
+    border-color: @secondary;
+    background-color: @bg-alt;
+}
+element-text selected {
+    background-color: @bg-alt;
+}
+
+listview, element, element-selected, element-text {
+    cursor: pointer;
+}
+entry {
+    cursor: text;
+}

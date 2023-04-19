@@ -1,0 +1,331 @@
+// colors
+$fg: #e8e3e3;
+$bg: #101010;
+
+$black: #171717;
+$dark: #1a1a1a;
+$gray: #424242;
+$white: #e8e3e3;
+$cardboard: #b7a997;
+$red: #b66467;
+$yellow: #d9bc8c;
+$green: #8c977d;
+$cyan: #8aa6a2;
+$blue: #8da3b9;
+$magenta: #a988b0;
+
+$radius: 2px;
+$icon-size: 14px;
+$font-size: 12px;
+
+$icon-font: "Feather";
+
+// widgets
+* {
+  all: unset;
+}
+
+// windows
+window {
+	background: $bg;
+	color: $fg;
+	font-size: $font-size;
+	font-family: "JetBrainsMono NerdFont Mono";
+	font-weight: 400;
+
+	& > * {
+		margin: 8px;
+	}
+}
+
+// sliders
+scale trough {
+	all: unset;
+	background-color: $bg;
+	border-radius: $radius;
+	min-height: 90px;
+	min-width: 10px;
+	margin: 10px 0 0px;
+}
+
+// bubbles
+.metric {
+	padding: 0px;
+
+	min-height: 21px;
+	
+	background-color: $black;
+	border-radius: $radius;
+}
+
+// icons
+@mixin icon {
+	padding: 9px 6px;
+
+	font-family: $icon-font;
+	font-size: $icon-size;
+
+	border-radius: $radius;
+
+	transition: all 0.2s;
+}
+
+//
+// TOP WIDGETS
+//
+
+// launcher
+.launcher-icon {
+	padding: 6px 6px 6px 4px;
+
+	color: $bg;
+	background-color: $cardboard;
+	border-left: 2px solid $cardboard;
+
+	font-family: $icon-font;
+	font-size: $icon-size;
+
+	transition: all 0.2s;
+
+	&:hover {
+		color: $cardboard;
+		background-color: $black;
+	}
+}
+
+.playpause-icon {
+	padding: 9px 6px 9px 4px;
+
+	font-family: $icon-font;
+	font-size: $icon-size;
+	transition: color 0.2s, background-color 0.2s, border 0.2s;
+
+	color: $fg;
+	border-left: 2px solid $black;
+	border-radius: $radius;
+
+	&:hover {
+		background-color: $black;
+		color: $yellow;
+	}
+}
+.music-playing {
+	padding: 9px 6px;
+
+	background-color: $yellow;
+	color: $bg;
+	border-left: 2px solid $yellow;
+
+	&:hover {
+		background-color: $black;
+	}
+}
+
+.skip-icon {
+	@include icon;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+
+.prev-icon {
+	@include icon;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+
+.workspaces {
+	padding: 7px 11px;
+
+	background-color: $black;
+	border-radius: $radius;
+}
+
+.workspace {
+	margin: 3px 0;
+	
+	min-height: 11px;
+
+	background-color: $bg;
+	border-radius: $radius;
+}
+.workspace-occupied {
+	background-color: $gray;
+}
+.workspace-focused {
+	// min-height: 17px;
+	background-color: $fg;
+}
+
+
+//
+// CENTER WIDGETS
+//
+
+.time-clock {
+	padding: 4px;
+	color: $fg;
+	background-color: $bg;
+}
+
+.date-clock {
+	padding: 4px;
+	color: $fg;
+	background-color: $bg;
+}
+
+.hour {
+	padding-bottom: 2px;
+	color: $green;
+}
+
+.day {
+	padding-bottom: 2px;
+	color: $green;
+}
+
+//
+// BOTTOM (sus) WIDGETS
+//
+
+.lamp-icon {
+	@include icon;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+.lamp-slider trough highlight {
+	background-color: $yellow;
+	border-radius: $radius;
+}
+
+.obs-icon {
+	@include icon;
+	color: $fg;
+
+	&:hover {
+		color: $red;
+	}
+}
+.obs-recording {
+	color: $red;
+}
+
+.screenshot-icon {
+	@include icon;
+
+	&:hover {
+		color: $magenta;
+	}
+}
+
+.memory-icon {
+	@include icon;
+	padding: 9px 6px 9px 4px;
+
+	background-color: $red;
+	color: $bg;
+	border-left: 2px solid $red;
+	border-radius: $radius;
+
+	&:hover {
+		color: $red;
+		background-color: $black;
+	}
+}
+
+.light-icon {
+	@include icon;
+	color: $gray;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+.light-on {
+	color: $fg;
+}
+
+.bluetooth-icon {
+	@include icon;
+	color: $gray;
+
+	&:hover {
+		color: $blue;
+	}
+}
+.bluetooth-on {
+	color: $fg;
+}
+.bluetooth-connected {
+	padding: 9px 6px 9px 4px;
+
+	background-color: $blue;
+	color: $bg;
+	border-left: 2px solid $blue;
+	border-radius: $radius;
+
+	&:hover {
+		color: $blue;
+		background-color: $black;
+	}
+}
+
+.vpn-icon {
+	@include icon;
+	color: $gray;
+
+	&:hover {
+		color: $green;
+	}
+}
+.vpn-on {
+	color: $fg;
+}
+
+.mic-icon {
+	@include icon;
+	color: $gray;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+.mic-on {
+	color: $fg;
+}
+
+
+.volume-icon {
+	@include icon;
+
+	&:hover {
+		color: $green;
+	}
+}
+.volume-slider trough highlight {
+	background-color: $green;
+	border-radius: $radius;
+}
+
+.poweroff-icon {
+	padding: 6px 6px 6px 4px;
+
+	color: $bg;
+	background-color: $red;
+
+	border-left: 2px solid $red;
+
+	font-family: $icon-font;
+	font-size: $icon-size;
+	transition: all 0.2s;
+
+	&:hover {
+		color: $red;
+		background-color: $black;
+	}
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Toggle mic mute
+pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+if (pactl list sources | grep -m 2 Mute | tail -n 1 | awk '{print $2}' | grep -q yes) then
+    notify-send "Microphone" "Muted" -u critical
+else
+    notify-send "Microphone" "Unmuted" -u low
+fi

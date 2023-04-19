@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+gib() {
+    current=$(wmctrl -d | grep '*' | awk '{print $1}')
+
+    for workspace in $(wmctrl -d | awk '{print $1}'); do
+        if [ $current -eq $workspace ]; then
+            focused="workspace-focused"
+        else
+            focused=""
+        fi
+
+        if [ $(wmctrl -lx | grep " $workspace " | awk '{print $1}' | wc -l) -gt 0 ]; then
+            occupied="workspace-occupied"
+        else
+            occupied=""
+        fi
+        
+        echo "(button :class \"workspace $occupied $focused\" :onclick \"wmctrl -s $workspace\")"
+    done
+}
+
+# echo "(box :class \"workspaces\" :orientation \"v\" :space-evenly false :spacing \"0\" $(gib))"
+
+xprop -spy -root _NET_CURRENT_DESKTOP | while read -r; do
+    eww update workspace_data="(box :class \"workspaces\" :orientation \"v\" :space-evenly false :spacing \"0\" $(gib))"
+done

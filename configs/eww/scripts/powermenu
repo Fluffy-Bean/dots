@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme ~/.config/rofi/power.rasi -hover-select"
+uptime=$(uptime -p | sed -e 's/up //g')
+
+# Options
+shutdown="Shutdown"
+reboot="Restart"
+lock="Lock"
+
+options="$reboot\n$shutdown\n$lock"
+
+chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
+case $chosen in
+    $shutdown)
+		systemctl poweroff
+        ;;
+    $reboot)
+		systemctl reboot
+        ;;
+    $lock)
+		dm-tool lock
+        ;;
+esac

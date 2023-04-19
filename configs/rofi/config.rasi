@@ -1,0 +1,99 @@
+configuration {
+    modi:                 "drun";
+    display-drun:         "";
+    drun-display-format:  "{name}";
+    font:                 "JetBrainsMono 10";
+    steal-focus:    true;
+    timeout {
+        delay:              10;
+        action:             "kb-cancel";
+    }
+}
+
+@theme "/dev/null"
+@import "colours/paradise.rasi"
+
+window {
+    fullscreen:     false;
+
+    location:       north west;
+    anchor:         north west;
+
+    width:          400px;
+    height:         48.4%;
+
+    x-offset:       51px;
+    y-offset:       3px;
+
+    transparency:     "real";
+    background-color: #00000000;
+    border-radius:    @rad;
+}
+
+mainbox {
+    children:           [ inputbar, listview ];
+    spacing:            8px;
+    background-color:   #00000000;
+}
+
+inputbar {
+    padding:            0px;
+    children:           [ entry ];
+    background-color:   #00000000;
+}
+
+entry {
+    padding:            0.75em;
+    placeholder:        "Sniff...";
+
+    border-radius:      @rad2;
+    background-color:   @bg;
+    text-color:         @fg-alt;
+    border-radius:      @rad;
+}
+
+listview {
+    padding:          6px;
+    
+    layout:           vertical;
+    cycle:            false;
+    scrollbar:        true;
+    scroll-step:      1;
+    border-radius:    @rad;
+
+}
+
+scrollbar {
+    margin:       0 0 0 6px;
+    padding:      0;
+
+    handle-color: @primary;
+    handle-width: 2px;
+
+    background-color: @bg-alt;
+    border-radius: @rad2;
+}
+
+element {
+    padding:          0.75em;
+}
+
+/*
+ *     SELECTED
+ */
+element selected {
+    border: 0px solid 0px solid 0px solid 2px solid;
+    border-color: @primary;
+    background-color: @bg-alt;
+}
+element-text selected {
+    background-color: @bg-alt;
+}
+
+listview, element, element-selected, element-text {
+    cursor: pointer;
+}
+entry {
+    cursor: text;
+    text-color:         @fg;
+}

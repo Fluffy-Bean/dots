@@ -1,1 +1,0 @@
-/home/fluffy/.config/qtile/modules/keybinds.py

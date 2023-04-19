@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import subprocess
+import sys
+import dotenv
+
+def getSession():
+    list = subprocess.run(["openvpn3", "sessions-list"], capture_output=True)
+    
+    if list.returncode != 0:
+        return None
+    
+    list_parsed = list.stdout.decode("utf-8").splitlines()  # parse output to lines
+    list_parsed = list_parsed[1]                            # get 2nd line
+    list_parsed = list_parsed.split(":")                    # split line to list
+    list_parsed = list_parsed[1].strip()                    # get second element and strip whitespaces
+    
+    return list_parsed
+
+def isConnected():
+    list = subprocess.run(["openvpn3", "sessions-list"], capture_output=True)
+    
+    if list.returncode != 0:
+        return False
+    elif len(list.stdout.decode("utf-8").splitlines()) < 6:
+        return False
+    else:
+        return True
+
+def toggle():
+    if isConnected():
+        session = getSession()
+        subprocess.run(["openvpn3", "session-manage", "--disconnect", "--session-path", session], capture_output=True)
+    else:
+        config = dotenv.get_key('/home/fluffy/.config/eww/scripts/.env', 'VPN_PATH')
+        subprocess.run(["openvpn3", "session-start", "--config", config], capture_output=True)
+
+try:
+    if sys.argv[1] == "status":
+        if isConnected():
+            print (1)
+        else:
+            print(0)
+    elif sys.argv[1] == "toggle":
+        toggle()
+except:
+    print("No arguments given")
